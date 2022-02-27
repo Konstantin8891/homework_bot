@@ -32,6 +32,7 @@ logging.basicConfig(
 
 
 def check_tokens():
+    """Тест переменных окружения"""
     if (
         ('PRACTICUM_TOKEN' in environ)
         and ('TELEGRAM_TOKEN' in environ)
@@ -44,6 +45,7 @@ def check_tokens():
 
 
 def send_message(bot, message):
+    """отправка сообщения"""
     try:
         bot.send_message(chat_id=TELEGRAM_CHAT_ID, text=message)
         logging.info(f'сообщение {message} отправлено')
@@ -52,6 +54,7 @@ def send_message(bot, message):
 
 
 def get_api_answer(current_timestamp):
+    """get запрос к конечной точке"""
     timestamp = current_timestamp
     params = {'from_date': timestamp}
     try:
@@ -72,6 +75,7 @@ def get_api_answer(current_timestamp):
 
 
 def check_response(response):
+    """проверка ответа"""
     if 'homeworks' in response.keys():
         return response['homeworks']
     else:
@@ -79,6 +83,7 @@ def check_response(response):
 
 
 def parse_status(homework):
+    """парсинг ответа"""
     try:
         homework_name = homework['lesson_name']
         try:
