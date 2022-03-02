@@ -12,8 +12,9 @@ TELEGRAM_CHAT_ID = getenv('TELEGRAM_CHAT_ID')
 
 RETRY_TIME = 600
 ENDPOINT_API = 'https://practicum.yandex.ru/api/'
-METHOD_STAT = 'user_api/homework_statuses/'
-ENDPOINT = os.path.join(ENDPOINT_API, METHOD_STAT)
+API = 'user_api/'
+METHOD_STAT = 'homework_statuses/'
+ENDPOINT = os.path.join(ENDPOINT_API, API, METHOD_STAT)
 HEADERS = {'Authorization': f'OAuth {PRACTICUM_TOKEN}'}
 
 HOMEWORK_STATUSES = {
