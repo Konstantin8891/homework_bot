@@ -1,29 +1,15 @@
 import logging
 import time
 
-from os import getenv
-
 import requests
 import telegram
 
 from dotenv import load_dotenv
 
+from config import (PRACTICUM_TOKEN, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID,
+                    RETRY_TIME, ENDPOINT, HEADERS, HOMEWORK_STATUSES)
+
 load_dotenv()
-
-PRACTICUM_TOKEN = getenv('PRACTICUM_TOKEN')
-TELEGRAM_TOKEN = getenv('TELEGRAM_TOKEN')
-TELEGRAM_CHAT_ID = getenv('TELEGRAM_CHAT_ID')
-
-RETRY_TIME = 600
-ENDPOINT = 'https://practicum.yandex.ru/api/user_api/homework_statuses/'
-HEADERS = {'Authorization': f'OAuth {PRACTICUM_TOKEN}'}
-
-
-HOMEWORK_STATUSES = {
-    'approved': 'Работа проверена: ревьюеру всё понравилось. Ура!',
-    'reviewing': 'Работа взята на проверку ревьюером.',
-    'rejected': 'Работа проверена: у ревьюера есть замечания.'
-}
 
 logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -39,9 +25,6 @@ def check_tokens():
         and (TELEGRAM_CHAT_ID is not None)
     ):
         return True
-    else:
-        logging.critical('Нет переменных окружения')
-        return False
 
 
 def send_message(bot, message):
