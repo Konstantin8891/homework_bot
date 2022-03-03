@@ -1,6 +1,8 @@
 import logging
 import time
 
+from http import HTTPStatus
+
 import requests
 import telegram
 
@@ -47,7 +49,7 @@ def get_api_answer(current_timestamp):
         headers=HEADERS,
         params=params
     )
-    if homework_statuses.status_code != 200:
+    if homework_statuses.status_code != HTTPStatus.OK:
         logging.error(f'Ошибка ответа. Код {homework_statuses.status_code}')
         raise Exception(f'Ошибка ответа. Код {homework_statuses.status_code}')
     homework_statuses = homework_statuses.json()
@@ -63,9 +65,6 @@ def check_response(response):
         homeworks = response['homeworks']
         if type(homeworks) is list:
             return homeworks
-        else:
-            logging.error('ошибка типа ответа API')
-            raise TypeError('ответ не является словарём')
     else:
         logging.error('ключ "homeworks" отсутствует в ответе API')
         raise Exception('ключ "homeworks" отсутствует в ответе API')
