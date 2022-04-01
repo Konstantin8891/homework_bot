@@ -93,7 +93,7 @@ def parse_status(homework):
 def main():
     """Основная логика работы бота."""
     bot = telegram.Bot(token=TELEGRAM_TOKEN)
-    current_timestamp = 0
+    current_timestamp = int(time.time())
     while True:
         if check_tokens():
             response = get_api_answer(current_timestamp)

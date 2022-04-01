@@ -10,7 +10,7 @@ PRACTICUM_TOKEN = getenv('PRACTICUM_TOKEN')
 TELEGRAM_TOKEN = getenv('TELEGRAM_TOKEN')
 TELEGRAM_CHAT_ID = getenv('TELEGRAM_CHAT_ID')
 
-RETRY_TIME = 600
+RETRY_TIME = 1200
 ENDPOINT_API = 'https://practicum.yandex.ru/api/'
 API = 'user_api/'
 METHOD_STAT = 'homework_statuses/'
