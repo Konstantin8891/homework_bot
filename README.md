@@ -1,4 +1,4 @@
-# homework_bot
+# Python Telegram bot
 
 89670253660@mail.ru
 
