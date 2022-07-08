@@ -14,4 +14,6 @@ python telegram bot
 Python: www.python.org/downloads/ устанавливаем Python 3.7
 Visual Studio Code: code.visualstudio.com/download
 Git: git-scm.com/download/win
-- Терминал для Unix систем или командная строка (или любой эмулятор терминала) для Window
+- Терминал для Unix систем или командная строка (или любой эмулятор терминала) для Windows
+> Всё остальное будет установлено автоматически в процессе установки проекта на локальной машине
+
